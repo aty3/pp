@@ -1,5 +1,14 @@
 REPO='https://github.com/aty3/pp.git'
 
+
+SSH= 'ssh -A -l attila_csender
+
+desc "Run Puppet on ENV['CLIENT']"
+task :apply do
+	client = ENV['CLIENT']
+	sh "git push"
+	sh "#{SSH} #{client} pull-updates"
+
 desc "Bootstrap puppet on ENV['CLIENT'] with
 	hostname ENV['HOSTNAME']"
 task :bootstrap do
