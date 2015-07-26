@@ -1,5 +1,6 @@
-node 'puppet1' {
+node 'puppet1','neo4j','logstash1' {
 	file { '/tmp/hello':
-		content => "Hello, wOrld\n",
+		content => "Hello, wOrldddd\n",
 	}
+	include puppet
 }
