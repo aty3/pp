@@ -18,7 +18,8 @@ task :bootstrap do
 	commands= <<BOOTSTRAP
 		sudo apt-get update && sudo apt-get -y install git puppet && \
 		git clone #{REPO} puppet && \
-		sudo puppet apply --modulepath=/home/attila_csender/puppet/modules /home/attila_csender/puppet/manifests/
+		sudo puppet apply /home/attila_csender/puppet/manifests/nodes.pp --modulepath /home/attila_csender/puppet/modules/
+
 BOOTSTRAP
 	sh "#{SSH} #{client} '#{commands}'"
 end
